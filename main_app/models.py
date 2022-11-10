@@ -7,6 +7,7 @@ class Exercise(models.Model):
     notes = models.CharField(max_length=50)
     picture = models.CharField(max_length=50)
 
+
 class Client(models.Model):
     name = models.CharField(max_length=50)
     weight = models.IntegerField()
