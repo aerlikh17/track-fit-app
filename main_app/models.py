@@ -15,7 +15,7 @@ class Client(models.Model):
 
 
 class ClientExercise(models.Model):
-    name = models.DateField('2022-22-01')
+    Date = models.DateField('2022-22-01')
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
 
