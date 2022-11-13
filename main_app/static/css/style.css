@@ -1,0 +1,11 @@
+section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.signUpBtn, .logInBtn {
+    background-color: #715BFB;
+    border: 2px solid #715BFB;
+    color: white;
+}
