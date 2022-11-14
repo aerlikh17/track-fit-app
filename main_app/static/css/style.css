@@ -94,7 +94,7 @@ a {
 	}
 }
 
-@media (min-width: 1025px) {
+@media (min-width: 769px) {
 	.header {
 		flex-direction: row;
 		justify-content: space-between;

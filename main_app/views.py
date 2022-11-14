@@ -7,8 +7,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 import uuid
 import boto3
 
-
-
 def home(request):
     return render(request, 'home.html')
 
