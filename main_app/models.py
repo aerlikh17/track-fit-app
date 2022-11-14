@@ -8,6 +8,7 @@ class Exercise(models.Model):
     unitType = models.CharField(max_length=50)
     Description = models.CharField(max_length=100)
     picture = models.CharField(max_length=50)
+ 
     def __str__(self):
         return self.name
 
@@ -20,10 +21,10 @@ class Client(models.Model):
         return self.name
 
 class ClientExercise(models.Model):
-    Date = models.DateField('2022-22-01')
+    Date = models.DateTimeField(auto_now_add=True)
     Note = models.CharField(max_length=100)
-    unitAmount1 = models.IntegerField()
-    unitAmount2 = models.IntegerField()
+    unitAmount = models.CharField(max_length=100)
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
+   
 
