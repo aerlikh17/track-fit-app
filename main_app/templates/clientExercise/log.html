@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block content %}
 
@@ -8,12 +9,19 @@
   <a href="">
     <div class="card">
         <div class="card-content">
+          <span class="ExerciseUnit"></span>{{CE.exercise.name}}
+          <input type="textbox" name="Reps" value="" size="3">
+          <input type="textbox" name="Sets" value="" size="3">
+          <input type="textbox" name="Mins" value="" size="3"><br>
+          <input type="textbox" name="Notes" size="10">
             <span class="card-title">{{ CE.note }}</span><br>
             {{CE.unitAmount}}<br>
-            {{CE.name}}<br>
-            {{CE.picture}}<br>
+            <br>             
+            {% load static %}
+            <img class="NIHLego" src={% static  CE.exercise.picture %} />
+            <img class="NIHLego" src={% static "images/" CE.exercise.picture %} />
+         
 
-            
         </div>
     </div>
   </a>

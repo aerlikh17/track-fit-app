@@ -36,14 +36,6 @@ def signup(request):
 
 
 def loglist(request, client_id):
-
-
-    clientExercise = ClientExercise.objects.filter (client_id = client_id ).select_related('exercise').all()
-    # exercise = Exercise.objects.all()
-    
-    print (clientExercise)
-  
-
-
+    clientExercise = ClientExercise.objects.filter (client_id = client_id ).select_related('exercise')
     return render(request, 'clientExercise/log.html', {'clientExercise': clientExercise} )
 
