@@ -123,4 +123,13 @@ border-radius: 5px;
 
 ::placeholder {
     color: lightgray;
+    background-color: #b7afe9;
+}
+
+nav {
+    background-color: #b7afe9;   
+}
+
+.page-footer {
+    background-color: #b7afe9; 
 }
