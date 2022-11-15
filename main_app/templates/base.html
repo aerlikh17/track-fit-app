@@ -19,9 +19,8 @@
       <ul class="main-nav">
         {% if user.is_authenticated %}
         <li><a href="">Hi {{ user.get_username }}!</a></li>
-        <li><a href="/clientExercise/1">Log</a></li>
+        <li><a href="/clientExercise/{{ user.id }}">Log</a></li>
         <li><a href="{% url 'logout' %}">Log Out</a></li>
-        <li><a href="{% url 'track' %}">Track</a></li>
       {% else %}
         <li><a href="{% url 'signup' %}">Sign Up</a></li>
         <li><a href="{% url 'login' %}">Log In</a></li>
@@ -32,30 +31,6 @@
 {% block content %}
 {% endblock %}
 
-<<<<<<< HEAD
-  <header class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <ul>
-          <li><a href="/" class="left brand-logo">Track Fit</a></li>
-        </ul>
-        <ul class="right">
-          {% if user.is_authenticated %}
-         
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
-          {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
-          {% endif %}
-        </ul>
-      </div>
-    </nav>
-  </header>
-  <main class="container">
-    {% block content %}
-    {% endblock %}
-=======
->>>>>>> main
   </main>
 </body>
 </html>
