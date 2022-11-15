@@ -19,9 +19,9 @@
   <tr>  
     <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
     <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
-    <td class="logUnittd"><input type="textbox" name="Reps" value="{{CE.reps}}" size="3" disabled></td>
-    <td class="logUnittd"><input type="textbox" name="Sets" value="{{CE.sets}}" size="3" disabled></td>
-    <td class="logUnittd"><input type="textbox" name="Mins" value="{{CE.time}}" size="3" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="Reps" value="{{CE.reps}}" size="5" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="Sets" value="{{CE.sets}}" size="5" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="Mins" value="{{CE.time}}" size="5" disabled></td>
     <td><input type="textbox" name="Notes" size="40" value="{{ CE.note }}" disabled></td>
     <td>
       <form>
@@ -33,16 +33,16 @@
   <tr><td><h4>More Activities to Add:</h4></td></tr>
   
   {% for E in exercise %}
-    <form>
+    <form action="{% url 'logAdd' E.id user.id %}" method="post">
       <tr>   
         <td><img class="NIHLego" src={% static  E.picture %} style="width:50px" /></td>
         <td><span class="ExerciseUnit">{{E.name}}</span></td>
-        <td class="logUnittd"><input type="textbox" name="Reps" value="Reps" size="3"></td>
-        <td class="logUnittd"><input type="textbox" name="Sets" value="Sets" size="3"></td>
-        <td class="logUnittd"><input type="textbox" name="Mins" value="Mins" size="3"></td>
+        <td class="logUnittd"><input type="textbox" name="Reps" placeholder="Reps" size="5"></td>
+        <td class="logUnittd"><input type="textbox" name="Sets" placeholder="Sets" size="5"></td>
+        <td class="logUnittd"><input type="textbox" name="Mins" placeholder="Mins" size="5"></td>
         <td><input type="textbox" name="Notes" size="40" value=""></td>
         <td>     
-            <a href="clientExercise/Add/{{E.id}}/">add</a>
+            <input type="submit" value="Add">
           </form>     
         </td>
       </tr>  

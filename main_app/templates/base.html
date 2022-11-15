@@ -16,10 +16,11 @@
       <div class="nav-wrapper">
         <ul>
           <li><a href="/" class="left brand-logo">Track Fit</a></li>
+          <li><a href="/clientExercise/1">Log</a></li>
         </ul>
         <ul class="right">
           {% if user.is_authenticated %}
-         
+           
             <li><a href="{% url 'logout' %}">Log Out</a></li>
           {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
