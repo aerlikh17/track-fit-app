@@ -6,11 +6,11 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
 from .forms import ClientExerciseForm
 from datetime import date
 import uuid
 import boto3
-
 
 def home(request):
     return render(request, 'home.html')
@@ -32,6 +32,11 @@ def logAdd (request, user_id, exercise_id):
       new_ClientExercise.exercise_id = exercise_id
       new_ClientExercise.save()
     return redirect('log', user_id = user_id)
+    
+def ExerciseDelete(request, exercise_id):
+  exercise = Exercise.objects.get(id=exercise_id)
+  exercise.delete()
+  return reverse('home')
 
 
 def signup(request):
