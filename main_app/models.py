@@ -3,7 +3,6 @@ from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
 
-   
 class Exercise (models.Model):
     name = models.CharField(max_length=50)
     unitType = models.CharField(max_length=50)
@@ -23,6 +22,12 @@ class Client(models.Model):
     def __str__(self):
         return self.name
 
+    picture = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    
+    def __str__(self):
+        return self.name
+        
 class ClientExercise(models.Model):
     date = models.DateField('2022-22-01')
     reps = models.IntegerField()
@@ -32,7 +37,33 @@ class ClientExercise(models.Model):
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
-
     def __str__(self):
         return f"{self.user.username} - {self.date}"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
