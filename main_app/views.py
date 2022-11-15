@@ -20,10 +20,6 @@ def loglist(request, user_id):
     today = date.today()
     today_date = today.strftime("%B %d, %Y")
     clientExercise = ClientExercise.objects.filter (user_id = user_id ).select_related('exercise')
-    print(clientExercise)
-    print(user_id)
-    print(request.user.id)
-    print(user_id==request.user.id)
     exercise = Exercise.objects.exclude (id__in = ClientExercise.objects.filter (user_id = user_id ).values_list('exercise_id')) 
     return render(request, 'clientExercise/log.html', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise} )
 
@@ -46,19 +42,9 @@ def logAdd (request, user_id, exercise_id):
     
     
 def ExerciseDelete(request, exercise_id):
-  print(request.user.email)
-  # print(request.user.objects)
-  print(exercise_id)
-  print(request.user.clientexercise_set.all())
-  today = date.today()
-  today_date = today.strftime("%B %d, %Y")
-  clientExercise = ClientExercise.objects.filter (user_id = request.user.id ).select_related('exercise')
-  exercise_id = Exercise.objects.exclude (id__in = ClientExercise.objects.filter (user_id = request.user.id ).values_list('exercise_id')) 
-  # print(ClientExercise.objects.get(id=exercise_id))
-  exercise = ClientExercise.objects.get(id=exercise_id)
-  print(exercise)
-  exercise.delete()
-  return reverse('log', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise_id})
+  clientExercise = ClientExercise.objects.filter (user_id = request.user.id )
+  clientExercise.delete()
+  return redirect('log', user_id = request.user.id)
 
 
 def signup(request):
