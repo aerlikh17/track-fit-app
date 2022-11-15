@@ -1,0 +1,56 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>{{user.name}}</h3>
+<h3>{{today_date}}</h3>
+<h4>Today Activities:</h4>
+{% load static %}
+<table>
+  {% for CE in clientExercise %}
+  <tr>
+    <td></td>
+    <td></td>
+    <td class="ExerciseUnit">Reps</td>
+    <td class="ExerciseUnit">Sets</td>
+    <td class="ExerciseUnit">Mins</td>
+    <td></td>
+  </tr>
+  <tr>  
+    <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
+    <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
+    <td class="logUnittd"><input type="textbox" name="Reps" value="{{CE.reps}}" size="5" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="Sets" value="{{CE.sets}}" size="5" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="Mins" value="{{CE.time}}" size="5" disabled></td>
+    <td><input type="textbox" name="Notes" size="40" value="{{ CE.note }}" disabled></td>
+    <td>
+      <form>
+        <a href="clientExercise/delete/{{CE.id}}"><img src={% static  'trash.png' %} style="width:30px" /></a>
+      </form>     
+    </td>
+  </tr>  
+  {% endfor %}
+  <tr><td><h4>More Activities to Add:</h4></td></tr>
+  
+  {% for E in exercise %}
+    <form action="{% url 'logAdd' E.id user.id %}" method="post">
+      {% csrf_token %}
+      <tr>   
+        <td><img class="NIHLego" src={% static  E.picture %} style="width:50px" /></td>
+        <td><span class="ExerciseUnit">{{E.name}}</span></td>
+        <td class="logUnittd"><input type="textbox" name="Reps" placeholder="Reps" size="5"></td>
+        <td class="logUnittd"><input type="textbox" name="Sets" placeholder="Sets" size="5"></td>
+        <td class="logUnittd"><input type="textbox" name="Mins" placeholder="Mins" size="5"></td>
+        <td><input type="textbox" name="Notes" size="40" value=""></td>
+        <td>     
+            <input type="submit" value="Add">
+          </form>     
+        </td>
+      </tr>  
+  {% endfor %}
+</table>
+  
+
+
+
+{% endblock %}
