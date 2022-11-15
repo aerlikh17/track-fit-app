@@ -99,8 +99,42 @@ a {
 		flex-direction: row;
 		justify-content: space-between;
 	}
+table {
+    padding:0;
+    margin:0px;
+    border:0px;
+    border-collapse: collapse;
+}
+
+tr {
+    border:0px;
+}
+
+td {
+    border:0px;
+}
+
+h3 {
+    color:#225981;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+h4 {
+    color:#225981;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.page-footer {
+    background-color: #b7afe9; 
 }
 
 .ExerciseUnit {
     color:#225981;
+    font-weight: bold;
+}
+
+.logUnittd{
+    width:50px
 }

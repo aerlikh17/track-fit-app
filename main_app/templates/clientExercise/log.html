@@ -2,30 +2,50 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Log Page</h1>
-
-
-
+<h3>{{user.name}}</h3>
+<h3>{{today_date}}</h3>
+<h4>Today Activities:</h4>
+{% load static %}
 <table>
   {% for CE in clientExercise %}
   <tr>
     <td></td>
     <td></td>
-    <td>Reps</td>
-    <td>Sets</td>
-    <td>Mins</td>
+    <td class="ExerciseUnit">Reps</td>
+    <td class="ExerciseUnit">Sets</td>
+    <td class="ExerciseUnit">Mins</td>
     <td></td>
   </tr>
-  <tr>
-    {% load static %}
+  <tr>  
     <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
     <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
-    <td><input type="textbox" name="Reps" value="{{CE.reps}}" size="3"></td>
-    <td><input type="textbox" name="Sets" value="{{CE.sets}}" size="3"></td>
-    <td><input type="textbox" name="Mins" value="{{CE.time}}" size="3"></td>
-    <td><input type="textbox" name="Notes" size="40" value="{{ CE.note }}"></td>
-  </tr>
+    <td class="logUnittd"><input type="textbox" name="Reps" value="{{CE.reps}}" size="3" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="Sets" value="{{CE.sets}}" size="3" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="Mins" value="{{CE.time}}" size="3" disabled></td>
+    <td><input type="textbox" name="Notes" size="40" value="{{ CE.note }}" disabled></td>
+    <td>
+      <form>
+        <a href="clientExercise/delete/{{CE.id}}"><img src={% static  'trash.png' %} style="width:30px" /></a>
+      </form>     
+    </td>
+  </tr>  
+  {% endfor %}
+  <tr><td><h4>More Activities to Add:</h4></td></tr>
   
+  {% for E in exercise %}
+    <form>
+      <tr>   
+        <td><img class="NIHLego" src={% static  E.picture %} style="width:50px" /></td>
+        <td><span class="ExerciseUnit">{{E.name}}</span></td>
+        <td class="logUnittd"><input type="textbox" name="Reps" value="Reps" size="3"></td>
+        <td class="logUnittd"><input type="textbox" name="Sets" value="Sets" size="3"></td>
+        <td class="logUnittd"><input type="textbox" name="Mins" value="Mins" size="3"></td>
+        <td><input type="textbox" name="Notes" size="40" value=""></td>
+        <td>     
+            <a href="clientExercise/Add/{{E.id}}/">add</a>
+          </form>     
+        </td>
+      </tr>  
   {% endfor %}
 </table>
   
