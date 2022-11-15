@@ -9,4 +9,5 @@ urlpatterns = [
   path('accounts/signup', views.signup, name='signup'),
   path('exercise/<int:pk>/delete', views.ExerciseDelete, name='exercise-delete'),
   path('clientExercise/track/<int:user_id>', views.tracklist, name='track'),
+  path('clientExercise/delete/<int:exercise_id>', views.ExerciseDelete, name='exercise-delete'),
 ]
