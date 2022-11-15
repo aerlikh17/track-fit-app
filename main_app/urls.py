@@ -8,4 +8,5 @@ urlpatterns = [
   path('accounts/', include('django.contrib.auth.urls')),
   path('accounts/signup', views.signup, name='signup'),
   path('exercise/<int:pk>/delete', views.ExerciseDelete, name='exercise-delete'),
+  path('clientExercise/track/<int:user_id>', views.tracklist, name='track'),
 ]
