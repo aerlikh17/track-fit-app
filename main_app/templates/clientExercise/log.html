@@ -5,27 +5,31 @@
 <h1>Log Page</h1>
 
 
-{% for CE in clientExercise %}
-  <a href="">
-    <div class="card">
-        <div class="card-content">
-          <span class="ExerciseUnit"></span>{{CE.exercise.name}}
-          <input type="textbox" name="Reps" value="" size="3">
-          <input type="textbox" name="Sets" value="" size="3">
-          <input type="textbox" name="Mins" value="" size="3"><br>
-          <input type="textbox" name="Notes" size="10">
-            <span class="card-title">{{ CE.note }}</span><br>
-            {{CE.unitAmount}}<br>
-            <br>             
-            {% load static %}
-            <img class="NIHLego" src={% static  CE.exercise.picture %} />
-            <img class="NIHLego" src={% static "images/" CE.exercise.picture %} />
-         
 
-        </div>
-    </div>
-  </a>
-{% endfor %}
+<table>
+  {% for CE in clientExercise %}
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Reps</td>
+    <td>Sets</td>
+    <td>Mins</td>
+    <td></td>
+  </tr>
+  <tr>
+    {% load static %}
+    <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
+    <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
+    <td><input type="textbox" name="Reps" value="{{CE.reps}}" size="3"></td>
+    <td><input type="textbox" name="Sets" value="{{CE.sets}}" size="3"></td>
+    <td><input type="textbox" name="Mins" value="{{CE.time}}" size="3"></td>
+    <td><input type="textbox" name="Notes" size="40" value="{{ CE.note }}"></td>
+  </tr>
+  
+  {% endfor %}
+</table>
+  
+
 
 
 {% endblock %}

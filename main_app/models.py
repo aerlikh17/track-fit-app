@@ -6,25 +6,21 @@ from django.contrib.auth.models import User
    
 class Exercise (models.Model):
     name = models.CharField(max_length=50)
-    picture = models.CharField(max_length=50)
+    picture = models.CharField(max_length=100)
     description = models.CharField(max_length=100)
-
+    def __str__(self):
+        return self.name
 
 class ClientExercise(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField('2022-22-01')
-
-    def __str__(self):
-        return f"{self.user.username} - {self.date}"
-
-
-class ClientExerciseLog (models.Model):
-    name = models.CharField(max_length=50)
     reps = models.IntegerField()
     sets = models.IntegerField()
     time = models.IntegerField()
     note = models.CharField(max_length=100)
-    client_exercise = models.ForeignKey(ClientExercise, on_delete=models.CASCADE)
+    exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
 
     def __str__(self):
-        return self.name
+        return f"{self.user.username} - {self.date}"
+
