@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import ListView, DetailView
-from .models import Exercise, Client, ClientExercise
+from .models import Exercise, ClientExercise, ClientExerciseLog
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -37,5 +37,6 @@ def signup(request):
 
 def loglist(request, client_id):
     clientExercise = ClientExercise.objects.filter (client_id = client_id ).select_related('exercise')
+    imagName = "images/" + CE.exercise.picture 
     return render(request, 'clientExercise/log.html', {'clientExercise': clientExercise} )
 
