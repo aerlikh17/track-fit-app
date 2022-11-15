@@ -9,6 +9,7 @@ body {
 	min-height: 100vh;
     background-color: white;
     font-family: Inter;
+    background-color: white;
 }
 
 ul {
@@ -99,4 +100,10 @@ a {
 		flex-direction: row;
 		justify-content: space-between;
 	}
+.page-footer {
+    background-color: #b7afe9; 
+}
+
+.ExerciseUnit {
+    color:#225981;
 }
