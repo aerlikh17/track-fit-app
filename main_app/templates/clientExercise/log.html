@@ -1,0 +1,35 @@
+
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Log Page</h1>
+
+
+
+<table>
+  {% for CE in clientExercise %}
+  <tr>
+    <td></td>
+    <td></td>
+    <td>Reps</td>
+    <td>Sets</td>
+    <td>Mins</td>
+    <td></td>
+  </tr>
+  <tr>
+    {% load static %}
+    <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
+    <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
+    <td><input type="textbox" name="Reps" value="{{CE.reps}}" size="3"></td>
+    <td><input type="textbox" name="Sets" value="{{CE.sets}}" size="3"></td>
+    <td><input type="textbox" name="Mins" value="{{CE.time}}" size="3"></td>
+    <td><input type="textbox" name="Notes" size="40" value="{{ CE.note }}"></td>
+  </tr>
+  
+  {% endfor %}
+</table>
+  
+
+
+
+{% endblock %}
