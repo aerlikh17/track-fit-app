@@ -25,12 +25,13 @@
     <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
     <td>
       <form>
-        <a href="clientExercise/delete/{{CE.id}}"><img src={% static  'trash.png' %} style="width:30px" /></a>
-        <a href="clientExercise/Edit/{{CE.id}}"><img src={% static  'trash.png' %} style="width:30px" /></a>
+        <a href="exercise/{{CE.id}}/delete"><img src={% static 'trash.png' %} style="width:30px" /></a>
+        <a href="clientExercise/Edit/{{CE.id}}"><img src={% static 'trash.png' %} style="width:30px" /></a>
       </form>     
     </td>
   </tr>  
   {% endfor %}
+
   <tr><td><h4>More Activities to Add:</h4></td></tr>
   
   {% for E in exercise %}

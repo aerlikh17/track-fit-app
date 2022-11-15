@@ -44,7 +44,7 @@ def logAdd (request, user_id, exercise_id):
 def ExerciseDelete(request, exercise_id):
   exercise = ClientExercise.objects.get(id=exercise_id)
   exercise.delete()
-  return reverse('track')
+  return reverse('clientExercise/log.html')
 
 
 def signup(request):
