@@ -33,6 +33,7 @@ def logAdd (request, user_id, exercise_id):
       new_ClientExercise.save()
     return redirect('log', user_id = user_id)
     
+    
 def ExerciseDelete(request, exercise_id):
   exercise = Exercise.objects.get(id=exercise_id)
   exercise.delete()
