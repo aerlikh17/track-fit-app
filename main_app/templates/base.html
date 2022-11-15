@@ -19,6 +19,7 @@
       <ul class="main-nav">
         {% if user.is_authenticated %}
         <li><a href="">Hi {{ user.get_username }}!</a></li>
+        <li><a href="/clientExercise/1">Log</a></li>
         <li><a href="{% url 'logout' %}">Log Out</a></li>
         <li><a href="{% url 'track' %}">Track</a></li>
       {% else %}
