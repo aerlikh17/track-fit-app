@@ -5,8 +5,8 @@ from django.contrib.auth.models import User
 
 class Exercise (models.Model):
     name = models.CharField(max_length=50)
-    unitType = models.CharField(max_length=50)
-    Description = models.CharField(max_length=100)
+    unitType = models.CharField(max_length=50, default="test")
+    description = models.CharField(max_length=100)
     picture = models.CharField(max_length=50)
     
     def __str__(self):
