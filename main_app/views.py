@@ -8,6 +8,8 @@ import uuid
 import boto3
 
 
+def log(request):
+    return render(request, 'log.html')
 
 def home(request):
     return render(request, 'home.html')
