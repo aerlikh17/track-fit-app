@@ -8,6 +8,7 @@ class Exercise(models.Model):
     unitType = models.CharField(max_length=50)
     Description = models.CharField(max_length=100)
     picture = models.CharField(max_length=50)
+    
     def __str__(self):
         return self.name
 
