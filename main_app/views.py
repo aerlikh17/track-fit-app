@@ -35,7 +35,7 @@ def logAdd (request, user_id, exercise_id):
     
     
 def ExerciseDelete(request, exercise_id):
-  exercise = Exercise.objects.get(id=exercise_id)
+  exercise = ClientExercise.objects.get(id=exercise_id)
   exercise.delete()
   return reverse('track')
 
@@ -51,7 +51,7 @@ def signup(request):
       user = form.save()
       # This is how we log a user in via code
       login(request, user)
-      return redirect('track')
+      return redirect('log')
     else:
       error_message = 'Invalid credentials - try again'
   # A bad POST or a GET request, so render signup.html with an empty form
