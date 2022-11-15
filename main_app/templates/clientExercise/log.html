@@ -34,6 +34,7 @@
   
   {% for E in exercise %}
     <form action="{% url 'logAdd' E.id user.id %}" method="post">
+      {% csrf_token %}
       <tr>   
         <td><img class="NIHLego" src={% static  E.picture %} style="width:50px" /></td>
         <td><span class="ExerciseUnit">{{E.name}}</span></td>

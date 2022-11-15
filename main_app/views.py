@@ -6,6 +6,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import ClientExerciseForm
 from datetime import date
 import uuid
 import boto3
@@ -24,8 +25,12 @@ def loglist(request, user_id):
 
 
 def logAdd (request, user_id, exercise_id):
-    form = AddExecForm(request.POST)
-    new_ClientExercise = form.save(commit=False)
+    form = ClientExerciseForm(request.POST)
+    if form.is_valid():
+      new_ClientExercise = form.save(commit=False)
+      new_ClientExercise.user_id = user_id
+      new_ClientExercise.exercise_id = exercise_id
+      new_ClientExercise.save()
     return redirect('log', user_id = user_id)
 
 
