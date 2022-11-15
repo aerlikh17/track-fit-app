@@ -12,7 +12,7 @@ class Exercise (models.Model):
         return self.name
         
 class ClientExercise(models.Model):
-    date = models.DateField('2022-22-01')
+    date = models.DateField()
     reps = models.IntegerField()
     sets = models.IntegerField()
     time = models.IntegerField()
