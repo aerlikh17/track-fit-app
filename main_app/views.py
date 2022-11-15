@@ -6,6 +6,8 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse
+from datetime import date
 import uuid
 import boto3
 
@@ -35,6 +37,10 @@ def signup(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
+def ExerciseDelete(request, exercise_id):
+  exercise = Exercise.objects.get(id=exercise_id)
+  exercise.delete()
+  return reverse('home')
 
 def loglist(request, user_id):
     today = date.today()
