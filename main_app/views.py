@@ -10,7 +10,7 @@ import boto3
 
 
 def log(request):
-    return render(request, 'log.html')
+    return render(request, 'logs.html')
 
 def home(request):
     return render(request, 'home.html')
