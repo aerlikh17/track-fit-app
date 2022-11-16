@@ -140,6 +140,14 @@ h4 {
   justify-content: center;
   justify-items: center;
 }
+.logContainer input {
+  border:1px solid #e0e0e0;
+  border-radius: 2;
+  margin:3px;
+  color:#014f82;
+  font-size: 12px;
+  height:40px;
+}
 
 .item {
   margin: 5px;

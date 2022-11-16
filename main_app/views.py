@@ -27,7 +27,7 @@ def loglist(request, user_id):
     today_date = today.strftime("%B %d, %Y")
     clientExercise = ClientExercise.objects.filter (user_id = user_id, date = today ).select_related('exercise')
     exercise = Exercise.objects.exclude (id__in = ClientExercise.objects.filter (user_id = user_id, date = today ).values_list('exercise_id')) 
-    return render(request, 'clientExercise/log.html', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise} )
+    return render(request, 'clientExercise/log2.html', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise} )
 
 
 @login_required
@@ -82,7 +82,3 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
-
-# step one: grab all unique dates from back end, pass them down into HTML. Call these 'unique dates'
-# step two: Run a for loop in your HTML so that each date in your unique dates list (that you passed down form the backend) is displayed on the page.
-# step three: Display the exercise if the date of the exercise matches the date from the list
