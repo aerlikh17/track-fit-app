@@ -28,6 +28,7 @@ table {
   border-collapse: collapse;
 }
 
+<<<<<<< HEAD
  HEAD
  HEAD
 
@@ -39,6 +40,11 @@ tr {
 /* h2, h3, a {
 	color: #715bfb;
 } */
+=======
+tr {
+  border:0px;
+}
+>>>>>>> 03019e494616be05b8c030766238dcac16919025
 
 td {
   border:0px;
@@ -100,6 +106,7 @@ h4 {
   Media Queries
 ==================================== */
 
+<<<<<<< HEAD
 @media (min-width: 769px) {
 	.header, .main-nav {
 		display: flex;
@@ -118,6 +125,10 @@ h4 {
 		flex-direction: row;
 		justify-content: space-between;
 	}
+=======
+.item {
+  margin: 5px;
+>>>>>>> 03019e494616be05b8c030766238dcac16919025
 }
 
 table {
@@ -125,16 +136,25 @@ table {
     margin:0px;
     border:0px;
     border-collapse: collapse;
+<<<<<<< HEAD
+=======
+}
+.container-fluid img {
+  width:300px;
+>>>>>>> 03019e494616be05b8c030766238dcac16919025
 }
 
 tr {
     border:0px;
 }
 
+<<<<<<< HEAD
 td {
     border:0px;
 }
 
+=======
+>>>>>>> 03019e494616be05b8c030766238dcac16919025
 h3 {
     color:#225981;
     font-size: 17px;
@@ -147,12 +167,15 @@ h4 {
     font-weight: bold;
 }
 
+<<<<<<< HEAD
 @media (min-width: 769px) {
 	.header {
 		flex-direction: row;
 		justify-content: space-between;
 	}
 }
+=======
+>>>>>>> 03019e494616be05b8c030766238dcac16919025
 .page-footer {
     background-color: #b7afe9; 
 }
