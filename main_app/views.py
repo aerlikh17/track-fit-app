@@ -42,7 +42,7 @@ def logAdd (request, user_id, exercise_id):
     
     
 def ExerciseDelete(request, exercise_id):
-  clientExercise = ClientExercise.objects.filter (user_id = request.user.id )
+  clientExercise = ClientExercise.objects.filter(id = exercise_id)
   clientExercise.delete()
   return redirect('log', user_id = request.user.id)
 
