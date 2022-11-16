@@ -95,3 +95,16 @@ h4 {
 .galleryContainer img {
   width:300px;
 }
+.container-fluid img {
+  width:300px;
+}
+
+.fontFjalla {
+  font-family: 'Fjalla One', sans-serif;
+  color:#014f82;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
