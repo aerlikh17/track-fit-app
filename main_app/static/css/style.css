@@ -73,3 +73,7 @@ h4 {
 #user-name {
   margin-right: 50px;
 }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #715bfb!important;
+}
