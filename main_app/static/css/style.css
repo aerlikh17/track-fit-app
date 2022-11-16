@@ -70,10 +70,11 @@ h4 {
   background-color: #b7afe9!important;
 }
 
-#user-name {
-  margin-right: 50px;
-}
-
 .navbar-light .navbar-nav .nav-link {
   color: #715bfb!important;
+}
+
+#user-name {
+  margin-right: 50px;
+  color: white!important;
 }
