@@ -158,3 +158,23 @@ origin/ClientDailyLog-listing
 .ExerciseUnit {
 	width: 350px;
 }
+
+.navButnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+.navButn {
+  padding: 15px 30px;
+  border: 2px solid #715bfb;
+  width: 220px;
+  text-align: center;
+  border-radius: 5px;
+
+}
+
+.navButn--active {
+  background-color: #b7afe9;
+} 
