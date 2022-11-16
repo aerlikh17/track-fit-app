@@ -56,10 +56,6 @@ def logUpdate(request, clientexercise_id):
   clientExercise.sets = request.POST['sets']
   
   print (request.POST)
-  # form = UserCreationForm(request.POST)
-  # print (form.is_valid())
-  # if form.is_valid():
-    # clientExercise.reps = form.cleaned_data["reps"]
   clientExercise.save()
   print (clientExercise)
   return redirect(f'/clientExercise/{request.user.id}')
@@ -80,3 +76,11 @@ def signup(request):
   return render(request, 'registration/signup.html', context)
 
 
+def tracklist(request, user_id):
+    clientExercise = ClientExercise.objects.filter (user_id = user_id ).select_related('exercise').order_by('-date')
+    print(list(clientExercise))
+    exercise = Exercise.objects.exclude (id__in = ClientExercise.objects.filter (user_id = user_id ).values_list('exercise_id')) 
+    return render(request, 'clientExercise/track.html', {'clientExercise': clientExercise, 'exercise': exercise} )
+# step one: grab all unique dates from back end, pass them down into HTML. Call these 'unique dates'
+# step two: Run a for loop in your HTML so that each date in your unique dates list (that you passed down form the backend) is displayed on the page.
+# step three: Display the exercise if the date of the exercise matches the date from the list

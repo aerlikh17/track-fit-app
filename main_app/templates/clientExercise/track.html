@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>{{user.name}}</h3>
+{% load static %}
+<table>
+    <tr>
+        <td></td>
+        <td></td>
+        <td class="ExerciseUnit">Reps</td>
+        <td class="ExerciseUnit">Sets</td>
+        <td class="ExerciseUnit">Mins</td>
+        <td></td>
+      </tr>
+  {% for CE in clientExercise %}
+ 
+  <tr>  
+    <td>{{CE.date}}</td>
+    <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
+    <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
+    <td class="logUnittd"><input type="textbox" name="reps" value="{{CE.reps}}" size="5" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="sets" value="{{CE.sets}}" size="5" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="time" value="{{CE.time}}" size="5" disabled></td>
+    <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
+  </tr>  
+  {% endfor %}
+  
+  
+
+{% endblock %}
