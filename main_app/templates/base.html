@@ -62,6 +62,12 @@
   {% endif %}
 </ul>
 </nav>
+{% if user.is_authenticated %}
+<div class="navButnContainer">
+  <a href="/clientExercise/track/{{ user.id }}" class="navButn navButn--active">Track</a>
+  <a href="/clientExercise/{{ user.id }}" class="navButn">Log</a>
+  </div>
+{% endif %}
 
 {% block content %}
 
