@@ -40,7 +40,3 @@ class ClientExercise(models.Model):
 
 
 
-
-
-
-

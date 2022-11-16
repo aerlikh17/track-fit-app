@@ -1,0 +1,15 @@
+
+.header{
+    display: flex;
+    background-color: #b7afe9;
+}
+.logoCont{
+
+}
+.mainLogo{
+    height: 100px;
+    width: 100px;
+}
+.profileLogo{
+    height: 100px;
+}

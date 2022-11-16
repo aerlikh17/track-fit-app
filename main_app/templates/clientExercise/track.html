@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-
 <h3>{{user.name}}</h3>
 {% load static %}
+
 <table>
     <tr>
         <td></td>
@@ -22,6 +22,7 @@
     <td class="logUnittd"><input type="textbox" name="reps" value="{{CE.reps}}" size="5" disabled></td>
     <td class="logUnittd"><input type="textbox" name="sets" value="{{CE.sets}}" size="5" disabled></td>
     <td class="logUnittd"><input type="textbox" name="time" value="{{CE.time}}" size="5" disabled></td>
+    <br />
     <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
   </tr>  
   {% endfor %}
