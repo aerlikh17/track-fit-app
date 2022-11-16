@@ -113,6 +113,7 @@ h4 {
 .navButn {
   margin-top: 30px;
   margin-bottom: 30px;
+  margin-right: 10px;
   padding: 15px 30px;
   border: 2px solid #715BFB;
   width: 220px;
@@ -120,6 +121,7 @@ h4 {
   border-radius: 5px;
   color: #715BFB;
 }
+
 .navButn:active {
   background-color: #B7AFE9;
 }
@@ -173,7 +175,7 @@ h4 {
   background: linear-gradient(to right, #B7AFE9, #715BFB);
   }
 
-.btn {
+.btn-color {
   background-color: #715BFB!important;
   margin-top: 30px;
 }
@@ -234,7 +236,6 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
   text-decoration: none;
   outline: none;
 }
-
 
 
 .new_footer_top .f_widget.about-widget .f_list li a:hover {
@@ -385,4 +386,21 @@ background-size:100%;
 100% {
   left: 100%;
 }
+}
+
+.helptext {
+  font-size: 15px;
+}
+
+form > ul > li {
+  font-size: 15px;
+}
+
+.border-wide {
+  border-width: 3px;
+  border-color: white;
+}
+
+.login-message {
+  color: white;
 }
