@@ -2,6 +2,9 @@
 * {
 	box-sizing: border-box;
 }
+body {
+    background-color: white
+}
 
 body {
 	line-height: 1.6;
@@ -138,4 +141,18 @@ h4 {
 
 .logUnittd{
     width: 50px;
+}
+.header{
+    display: flex;
+    background-color: #b7afe9;
+}
+.logoCont{
+
+}
+.mainLogo{
+    height: 100px;
+    width: 100px;
+}
+.profileLogo{
+    height: 100px;
 }
