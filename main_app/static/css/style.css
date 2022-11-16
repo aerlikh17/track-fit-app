@@ -159,3 +159,32 @@ h4 {
 .profileLogo{
     height: 100px;
 }
+.galleryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap:40px;
+  padding:40px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.item {
+  margin: 5px;
+}
+
+.galleryContainer img {
+  width:300px;
+}
+.container-fluid img {
+  width:300px;
+}
+
+.fontFjalla {
+  font-family: 'Fjalla One', sans-serif;
+  color:#014f82;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
+}
