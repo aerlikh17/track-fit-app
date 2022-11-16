@@ -3,31 +3,31 @@
 
 <h3>{{user.name}}</h3>
 {% load static %}
-<table>
+<table class="table table-hover trackTable">
+  <thead>
     <tr>
-        <td></td>
-        <td></td>
-        <td class="ExerciseUnit">Reps</td>
-        <td class="ExerciseUnit">Sets</td>
-        <td class="ExerciseUnit">Mins</td>
-        <td></td>
-      </tr>
+      <th class="ExerciseUnit">Date</th>
+      <th></th>
+      <th class="ExerciseUnit">Exercise</th>
+      <th class="ExerciseUnit">Reps</th>
+      <th class="ExerciseUnit">Sets</th>
+      <th class="ExerciseUnit">Mins</th>
+      <th class="ExerciseUnit">Notes</th>
 
-
-  {% for CEGB in clientExerciseGB %}
-    <tr><td>{{CEGB.date}}</td></tr>
-    {% for CE in clientExercise %}
-      {% if CEGB.date == CE.date %}
-        <tr>  
-          <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
-          <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
-          <td class="logUnittd"><input type="textbox" name="reps" value="{{CE.reps}}" size="5" disabled></td>
-          <td class="logUnittd"><input type="textbox" name="sets" value="{{CE.sets}}" size="5" disabled></td>
-          <td class="logUnittd"><input type="textbox" name="time" value="{{CE.time}}" size="5" disabled></td>
-          <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
-        </tr>  
-      {% endif %}
-    {% endfor %}
+    </tr>
+  </thead>
+    
+  {% for CE in clientExercise %}
+ 
+  <tr>  
+    <td>{{CE.date}}</td>
+    <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
+    <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
+    <td class="logUnittd"><input type="textbox" name="reps" value="{{CE.reps}}" size="5" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="sets" value="{{CE.sets}}" size="5" disabled></td>
+    <td class="logUnittd"><input type="textbox" name="time" value="{{CE.time}}" size="5" disabled></td>
+    <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
+  </tr>  
   {% endfor %}
 </table>
 
