@@ -121,6 +121,7 @@ h4 {
   border-radius: 5px;
   color: #715BFB;
 }
+
 .navButn:active {
   background-color: #B7AFE9;
 }
@@ -214,7 +215,6 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
   text-decoration: none;
   outline: none;
 }
-
 
 
 .new_footer_top .f_widget.about-widget .f_list li a:hover {
@@ -378,4 +378,8 @@ form > ul > li {
 .border-wide {
   border-width: 3px;
   border-color: white;
+}
+
+.login-message {
+  color: white;
 }
