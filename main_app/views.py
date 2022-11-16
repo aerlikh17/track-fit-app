@@ -53,11 +53,11 @@ def ExerciseDelete(request, exercise_id):
 def logUpdate(request, clientexercise_id):
 
   clientExercise = ClientExercise.objects.get(id = clientexercise_id) 
+  clientExercise.sets = request.POST['reps']
   clientExercise.sets = request.POST['sets']
-  
-  print (request.POST)
+  clientExercise.sets = request.POST['time']
+  clientExercise.sets = request.POST['note']
   clientExercise.save()
-  print (clientExercise)
   return redirect(f'/clientExercise/{request.user.id}')
 
 
