@@ -14,7 +14,8 @@
       </tr>
   {% for CE in clientExercise %}
  
-  <tr>  {{CE.date}}
+  <tr>  
+    <td>{{CE.date}}</td>
     <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
     <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
     <td class="logUnittd"><input type="textbox" name="reps" value="{{CE.reps}}" size="5" disabled></td>
