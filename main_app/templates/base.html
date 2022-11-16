@@ -62,6 +62,7 @@
         {% if user.is_authenticated %}
         <li><a href="">Hi {{ user.get_username }}!</a></li>
         <li><a href="/clientExercise/{{ user.id }}">Log</a></li>
+        <li><a href="/clientExercise/track/{{ user.id }}">Track</a></li>
         <li><a href="{% url 'logout' %}">Log Out</a></li>
       {% else %}
         <li><a href="{% url 'signup' %}">Sign Up</a></li>
