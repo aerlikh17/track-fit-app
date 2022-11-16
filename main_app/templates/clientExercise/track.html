@@ -1,9 +1,5 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="navButnContainer">
-  <a class="navButn navButn--active">Track</a>
-  <a class="navButn">Log</a>
-  </div>
 <h3>{{user.name}}</h3>
 {% load static %}
 
@@ -25,6 +21,7 @@
     <td class="logUnittd"><input type="textbox" name="reps" value="{{CE.reps}}" size="5" disabled></td>
     <td class="logUnittd"><input type="textbox" name="sets" value="{{CE.sets}}" size="5" disabled></td>
     <td class="logUnittd"><input type="textbox" name="time" value="{{CE.time}}" size="5" disabled></td>
+    <br />
     <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
   </tr>  
   {% endfor %}

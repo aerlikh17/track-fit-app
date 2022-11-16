@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,26 +11,30 @@
 </head>
 <body>
   <header class="header">
-		<h1 class="logo"><a href=""><img id="logo-image" src="{% static 'images/Component 5.png'%}"></a>
+    <h1 class="logo"><a href=""><img id="logo-image" src="{% static 'images/Component 5.png'%}"></a>
     </h1>
     <h1 class="logo"><a href="">Track Fit</a>
     </h1>
       <ul class="main-nav">
         {% if user.is_authenticated %}
         <li><a href="">Hi {{ user.get_username }}!</a></li>
-        <li><a href="/clientExercise/{{ user.id }}">Log</a></li>
-        <li><a href="/clientExercise/track/{{ user.id }}">Track</a></li>
-        <li><a href="{% url 'logout' %}">Log Out</a></li>
+        <!-- <li><a href="/clientExercise/{{ user.id }}">Log</a></li>
+        <li><a href="/clientExercise/track/{{ user.id }}">Track</a></li> -->
+        <li><a href="{% url 'logout' %}"><img id="logo-image" src="http://cdn.onlinewebfonts.com/svg/img_337531.png"></a></li>
       {% else %}
         <li><a href="{% url 'signup' %}">Sign Up</a></li>
         <li><a href="{% url 'login' %}">Log In</a></li>
       {% endif %}
       </ul>
-	</header> 
-
+  </header>
+  {% if user.is_authenticated %}
+  <div class="navButnContainer">
+    <a href="/clientExercise/track/{{ user.id }}" class="navButn navButn--active">Track</a>
+    <a href="/clientExercise/{{ user.id }}" class="navButn">Log</a>
+    </div>
+    {% endif %}
 {% block content %}
 {% endblock %}
-
   </main>
 </body>
 </html>

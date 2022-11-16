@@ -175,6 +175,12 @@ origin/ClientDailyLog-listing
 
 }
 
-.navButn--active {
+.navButn:active {
   background-color: #b7afe9;
 } 
+
+.navButn:hover {
+  background-color: #b7afe9;
+  
+}
+
