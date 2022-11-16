@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from .forms import ClientExerciseForm
 from datetime import date
+from django.db.models import Count
 
 import uuid
 import boto3
@@ -53,12 +54,19 @@ def ExerciseDelete(request, exercise_id):
 def logUpdate(request, clientexercise_id):
 
   clientExercise = ClientExercise.objects.get(id = clientexercise_id) 
-  clientExercise.sets = request.POST['reps']
+  clientExercise.reps = request.POST['reps']
   clientExercise.sets = request.POST['sets']
-  clientExercise.sets = request.POST['time']
-  clientExercise.sets = request.POST['note']
+  clientExercise.time = request.POST['time']
+  clientExercise.note = request.POST['note']
   clientExercise.save()
   return redirect(f'/clientExercise/{request.user.id}')
+
+
+@login_required
+def tracklist(request, user_id):
+    clientExerciseGB = ClientExercise.objects.filter (user_id = user_id ).values('date').annotate(dcount=Count('date')).order_by('-date')
+    clientExercise = ClientExercise.objects.filter (user_id = user_id ).select_related('exercise').order_by('date')
+    return render(request, 'clientExercise/track.html', {'clientExercise': clientExercise, 'clientExerciseGB': clientExerciseGB} )
 
 
 def signup(request):
@@ -68,19 +76,13 @@ def signup(request):
     if form.is_valid():
       user = form.save()
       login(request, user)
-      return redirect('log')
+      return redirect(f'/clientExercise/{request.user.id}')
     else:
       error_message = 'Invalid credentials - try again'
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
 
-
-def tracklist(request, user_id):
-    clientExercise = ClientExercise.objects.filter (user_id = user_id ).select_related('exercise').order_by('-date')
-    print(list(clientExercise))
-    exercise = Exercise.objects.exclude (id__in = ClientExercise.objects.filter (user_id = user_id ).values_list('exercise_id')) 
-    return render(request, 'clientExercise/track.html', {'clientExercise': clientExercise, 'exercise': exercise} )
 # step one: grab all unique dates from back end, pass them down into HTML. Call these 'unique dates'
 # step two: Run a for loop in your HTML so that each date in your unique dates list (that you passed down form the backend) is displayed on the page.
 # step three: Display the exercise if the date of the exercise matches the date from the list
