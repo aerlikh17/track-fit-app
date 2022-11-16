@@ -127,3 +127,23 @@ h4 {
 .navButn:hover {
   background-color: #B7AFE9;
 }
+
+#theExercise {
+  display: flex;
+  justify-content: center;
+}
+
+#noteEx {
+  display: flex;
+  justify-content: center;
+  margin-left: 600px;
+  padding-top: 15px;
+
+
+}
+
+#fitTable {
+  display: flex;
+  justify-content: center;
+  border: solid purple 2px;
+}
