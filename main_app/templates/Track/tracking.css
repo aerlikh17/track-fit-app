@@ -1,14 +1,3 @@
-body {
-    background-color: white
-}
-
-nav {
-    background-color: #b7afe9;   
-}
-
-.page-footer {
-    background-color: #b7afe9; 
-}
 
 .header{
     display: flex;
