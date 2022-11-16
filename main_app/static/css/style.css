@@ -12,8 +12,11 @@ body {
 	min-height: 100vh;
     background-color: white;
     font-family: Inter;
-=========
+
     background-color: white;
+    background-color: white;
+  background-color: white;
+  font-family: Inter;
 }
 
 /* Log page styling */
@@ -25,6 +28,10 @@ table {
   border-collapse: collapse;
 }
 
+ HEAD
+ HEAD
+
+main
 
 tr {
   border:0px;
@@ -146,6 +153,9 @@ h4 {
 		justify-content: space-between;
 	}
 }
+.page-footer {
+    background-color: #b7afe9; 
+}
 
 .ExerciseUnit {
     color:#225981;
@@ -203,3 +213,33 @@ h4 {
 .logUnittd {
     width: 50px; 
 }
+
+.ExerciseUnit {
+	width: 350px;
+}
+
+.navButnContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+}
+.navButn {
+  padding: 15px 30px;
+  border: 2px solid #715bfb;
+  width: 220px;
+  text-align: center;
+  border-radius: 5px;
+
+}
+
+.navButn:active {
+  background-color: #b7afe9;
+} 
+
+.navButn:hover {
+  background-color: #b7afe9;
+  
+}
+

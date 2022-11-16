@@ -84,6 +84,7 @@ def ExerciseDelete(request, exercise_id):
   exercise.delete()
   return reverse('home')
 
+
 def loglist(request, user_id):
     today = date.today()
     today_date = today.strftime("%B %d, %Y")
