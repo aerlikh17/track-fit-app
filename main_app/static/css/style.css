@@ -149,6 +149,7 @@ h4 {
   flex-wrap: wrap;
   padding: 10px;
   justify-content: space-between; 
+  justify-items:
 }
 .item {
   margin: 5px;
