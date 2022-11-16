@@ -53,12 +53,19 @@ def ExerciseDelete(request, exercise_id):
 def logUpdate(request, clientexercise_id):
 
   clientExercise = ClientExercise.objects.get(id = clientexercise_id) 
-  clientExercise.sets = request.POST['reps']
+  clientExercise.reps = request.POST['reps']
   clientExercise.sets = request.POST['sets']
-  clientExercise.sets = request.POST['time']
-  clientExercise.sets = request.POST['note']
+  clientExercise.time = request.POST['time']
+  clientExercise.note = request.POST['note']
   clientExercise.save()
   return redirect(f'/clientExercise/{request.user.id}')
+
+@login_required
+def tracklist(request, user_id):
+    clientExercise = ClientExercise.objects.filter (user_id = user_id ).select_related('exercise').order_by('-date')
+    print(list(clientExercise))
+    exercise = Exercise.objects.exclude (id__in = ClientExercise.objects.filter (user_id = user_id ).values_list('exercise_id'))
+    return render(request, 'clientExercise/track.html', {'clientExercise': clientExercise, 'exercise': exercise} )
 
 
 def signup(request):
