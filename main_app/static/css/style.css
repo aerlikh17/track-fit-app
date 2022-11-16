@@ -59,7 +59,7 @@ h4 {
   line-height: normal;
   letter-spacing: normal;
   text-align: center;
-  color: #715bfb!important;
+  color: #5137fb!important;
 }
 
 .nav-item {
@@ -71,10 +71,40 @@ h4 {
 }
 
 .navbar-light .navbar-nav .nav-link {
-  color: #715bfb!important;
+  color: #5137fb!important;
 }
 
 #user-name {
   margin-right: 50px;
   color: white!important;
+}
+
+.galleryContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap:40px;
+  padding:40px;
+  justify-content: center;
+  justify-items: center;
+}
+
+.item {
+  margin: 5px;
+}
+
+.galleryContainer img {
+  width:300px;
+}
+.container-fluid img {
+  width:300px;
+}
+
+.fontFjalla {
+  font-family: 'Fjalla One', sans-serif;
+  color:#014f82;
+  text-align: center;
+}
+
+.text-center {
+  text-align: center;
 }

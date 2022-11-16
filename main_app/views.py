@@ -17,6 +17,10 @@ def home(request):
     return render(request, 'home.html')
 
 
+def aboutus(request):
+    return render(request, 'aboutus.html')
+    
+
 def loglist(request, user_id):
     today = date.today()
     today_date = today.strftime("%B %d, %Y")
@@ -25,6 +29,7 @@ def loglist(request, user_id):
     return render(request, 'clientExercise/log.html', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise} )
 
 
+@login_required
 def logAdd (request, user_id, exercise_id):
     form = ClientExerciseForm(request.POST)
     if form.is_valid(): 
@@ -32,36 +37,40 @@ def logAdd (request, user_id, exercise_id):
       new_ClientExercise.date = date.today()    
       new_ClientExercise.user_id = user_id
       new_ClientExercise.exercise_id = exercise_id
-     
-      print(exercise_id)
-      print (user_id)
-      print (new_ClientExercise)
       new_ClientExercise.save()
     return redirect('log', user_id = user_id)
 
     
-    
+@login_required  
 def ExerciseDelete(request, exercise_id):
   clientExercise = ClientExercise.objects.filter(id = exercise_id)
   clientExercise.delete()
   return redirect('log', user_id = request.user.id)
+  new_feeding = form.save(commit=False)
+
+
+@login_required
+def logUpdate(request, clientexercise_id):
+
+  clientExercise = ClientExercise.objects.get(id = clientexercise_id) 
+  clientExercise.sets = request.POST['reps']
+  clientExercise.sets = request.POST['sets']
+  clientExercise.sets = request.POST['time']
+  clientExercise.sets = request.POST['note']
+  clientExercise.save()
+  return redirect(f'/clientExercise/{request.user.id}')
 
 
 def signup(request):
   error_message = ''
   if request.method == 'POST':
-    # This is how to create a 'user' form object
-    # that includes the data from the browser
     form = UserCreationForm(request.POST)
     if form.is_valid():
-      # This will add the user to the database
       user = form.save()
-      # This is how we log a user in via code
       login(request, user)
       return redirect('log')
     else:
       error_message = 'Invalid credentials - try again'
-  # A bad POST or a GET request, so render signup.html with an empty form
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
