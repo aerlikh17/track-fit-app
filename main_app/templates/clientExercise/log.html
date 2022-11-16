@@ -9,26 +9,20 @@
     <div id="theExercise">
         </div>
         <table class="table table-hover">
-          <thead>
-            <tr>
-              <th scope="col">November 15,</th>
-            </tr>
-          </thead>
-      <tr>
-        <td>
-          <h3>{{user.name}}</h3>
-          <h3>{{today_date}}</h3>
-        </td>
-      </tr>
+      
+
       {% for CE in clientExercise %}
-      <tr>
-        <td></td>
-        <td></td>
-        <td class="ExerciseUnit">Reps</td>
-        <td class="ExerciseUnit">Sets</td>
-        <td class="ExerciseUnit">Mins</td>
-        <td></td>
-      </tr>
+      <thead>
+        <tr>
+          <th class="ExerciseUnit">{{ CE.date }}</th>
+          <th class="ExerciseUnit">Exercise</th>
+          <th class="ExerciseUnit">Reps</th>
+          <th class="ExerciseUnit">Sets</th>
+          <th class="ExerciseUnit">Mins</th>
+          
+          
+        </tr>
+      </thead>
       <form action="{% url 'logUpdate' CE.id %}" method="post">
         {% csrf_token %}
         
@@ -41,18 +35,17 @@
           <td class="logUnittd"><input type="textbox" name="time" value="{{CE.time}}" size="5" ></td>
         </div>
         </tr> 
-      
+        <tr>
           <div id="noteEx">
-            <h1>test</h1>
-            <tr>
+          
           <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
           <td>  
               <input type="submit" value="Edit">  
               <a href="delete/{{CE.id}}"><img src={% static  'trash.png' %} style="width:30px" /></a>
           </td>
-        </tr>
-        </div>
         
+        </div>
+      </tr>
       </form>
       {% endfor %}
     
