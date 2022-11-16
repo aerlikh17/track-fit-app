@@ -1,10 +1,10 @@
 # Track Fit
 # Team Members:
-1.
-2.
-3.
-4.
-5. Farnaz Towhidi
+1. Farnaz Towhidi
+2. Anastasiia Erlikh
+3. Naser Osman
+4. Abdirahman
+5. Ravi
 
 # App Screenshots
 # Technologies Used
