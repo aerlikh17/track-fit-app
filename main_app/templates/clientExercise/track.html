@@ -12,18 +12,25 @@
         <td class="ExerciseUnit">Mins</td>
         <td></td>
       </tr>
-  {% for CE in clientExercise %}
- 
-  <tr>  
-    <td>{{CE.date}}</td>
-    <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
-    <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
-    <td class="logUnittd"><input type="textbox" name="reps" value="{{CE.reps}}" size="5" disabled></td>
-    <td class="logUnittd"><input type="textbox" name="sets" value="{{CE.sets}}" size="5" disabled></td>
-    <td class="logUnittd"><input type="textbox" name="time" value="{{CE.time}}" size="5" disabled></td>
-    <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
-  </tr>  
+
+
+  {% for CEGB in clientExerciseGB %}
+    <tr><td>{{CEGB.date}}</td></tr>
+    {% for CE in clientExercise %}
+      {% if CEGB.date == CE.date %}
+        <tr>  
+          <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
+          <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
+          <td class="logUnittd"><input type="textbox" name="reps" value="{{CE.reps}}" size="5" disabled></td>
+          <td class="logUnittd"><input type="textbox" name="sets" value="{{CE.sets}}" size="5" disabled></td>
+          <td class="logUnittd"><input type="textbox" name="time" value="{{CE.time}}" size="5" disabled></td>
+          <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
+        </tr>  
+      {% endif %}
+    {% endfor %}
   {% endfor %}
+
+  
   
   
 

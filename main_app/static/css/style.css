@@ -8,6 +8,7 @@ body {
 	min-height: 100vh;
   background-color: white;
   font-family: Inter;
+  text-align: center;
 }
 
 /* Log page styling */
@@ -28,7 +29,7 @@ td {
 }
 
 h3 {
-  color:#1e5a85;
+  color:#225981;
   font-size: 17px;
   font-weight: bold;
 }
@@ -88,6 +89,10 @@ h4 {
   justify-items: center;
 }
 
+.colorDarkBlue {
+  color:#014f82;
+}
+
 .item {
   margin: 5px;
 }
@@ -109,6 +114,7 @@ h4 {
   text-align: center;
 }
 
+
 .navButnContainer {
   display: flex;
   align-items: center;
@@ -126,4 +132,20 @@ h4 {
 }
 .navButn:hover {
   background-color: #B7AFE9;
+} 
+
+.logContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-items: center;
+}
+
+.item {
+  margin: 5px;
+}
+
+#logo-image {
+  width:100%;
+  margin:5px;
 }
