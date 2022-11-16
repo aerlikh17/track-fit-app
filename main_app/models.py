@@ -5,12 +5,23 @@ from django.contrib.auth.models import User
 
 class Exercise (models.Model):
     name = models.CharField(max_length=50)
-    picture = models.CharField(max_length=100)
-    description = models.CharField(max_length=100)
+    unitType = models.CharField(max_length=50)
+    Description = models.CharField(max_length=100)
+    picture = models.CharField(max_length=50)
     
     def __str__(self):
         return self.name
-        
+
+class Client(models.Model):
+    name = models.CharField(max_length=50)
+    weight = models.IntegerField()
+    height = models.IntegerField()
+
+    picture = models.CharField(max_length=100)
+    description = models.CharField(max_length=100)
+    def __str__(self):
+        return self.name
+
 class ClientExercise(models.Model):
     date = models.DateField()
     reps = models.IntegerField()
