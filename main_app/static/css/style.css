@@ -29,6 +29,7 @@ tr {
 
 td {
   border:0px;
+  text-align: left;
 }
 
 h3 {
@@ -46,9 +47,33 @@ h4 {
 .ExerciseUnit {
   color:#225981;
   font-size:12px;
-  width:100px;
   align-self:center;
   text-align: left;
+}
+
+.ReportUnit {
+  color:#225981;
+  font-size:12px;
+  align-self:center;
+  text-align: center;
+}
+
+.ReportTitle {
+  color:#225981;
+  font-family: 'Fjalla One', sans-serif;
+  font-size:14px;
+  font-weight: bold;
+  align-self:center;
+  text-align: center;
+}
+
+.ReportInput {
+  border:1px solid #e0e0e0;
+  border-radius: 2;
+  margin:3px;
+  color:#014f82;
+  font-size: 12px;
+  height:30px;
 }
 
 .gaientTitle {
@@ -62,12 +87,17 @@ h4 {
 font-family: 'Fjalla One', sans-serif;
 color:#014f82;
 font-weight: bold;
+text-align: center;
 }
 
 .tracktitle{
   font-family: 'Fjalla One', sans-serif;
-  color:rgb(224, 224, 224);
+  color:#014f82;
   font-weight: bold;
+  background-color: #B7AEEA;
+  text-align: center;
+  height:30px;
+  margin:10px;
   }
 
 .logUnittd{
@@ -120,6 +150,11 @@ font-weight: bold;
 
 .galleryContainer img {
   width:300px;
+  align-self: center;
+}
+
+.reportTable {
+  text-align: center;
 }
 
 .trackHeader{
