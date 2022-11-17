@@ -2,14 +2,13 @@
 {% block content %}
 
 {% load static %}
-<div class="container-fluid fill"></div>
+
+<div>
   <div class="row">
-    <div class="col-xl-4 col-lg-4">  
-     
-    </div>
+
     <div class="col-xl-4 col-lg-4">
       {% for CEGB in clientExerciseGB %}
-        <div class="row trackHeader"><div class="col-xl-12 justify-content-center logtitle ">{{CEGB.date}}</div></div>
+        <div class="row trackHeader"><div class="col-xl-12 justify-content-center tracktitle ">{{CEGB.date}}</div></div>
         {% for CE in clientExercise %}
           {% if CEGB.date == CE.date %}
             <div class="row">
@@ -26,7 +25,8 @@
         {% endfor %}     
       {% endfor %}
     </div>
-    <div class="col-xl-4 col-lg-4">  
+    <div class="col-xl-8 col-lg-8">  
+      <img src={% static  'bg2.jpeg' %} class="img-fluid" />
     </div>
   </div>
 </div>

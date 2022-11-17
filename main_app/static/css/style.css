@@ -51,11 +51,24 @@ h4 {
   text-align: left;
 }
 
+.gaientTitle {
+  font-family: 'Fjalla One', sans-serif;
+  color:#014f82;
+  font-weight: bold;
+  font-size: 80px;
+}
+
 .logtitle{
 font-family: 'Fjalla One', sans-serif;
 color:#014f82;
 font-weight: bold;
 }
+
+.tracktitle{
+  font-family: 'Fjalla One', sans-serif;
+  color:rgb(224, 224, 224);
+  font-weight: bold;
+  }
 
 .logUnittd{
   width:50px;
@@ -108,7 +121,7 @@ font-weight: bold;
 .trackHeader{
   background-color:#9387DE;
   color:white;
-  height:50px;
+  height:30px;
   vertical-align: middle;
   margin:20px;
 }
@@ -229,7 +242,7 @@ font-weight: bold;
 }
 
 body {
-  background: #fbfbfd;
+  background: white;
 }
 
 .new_footer_area {
