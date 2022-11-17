@@ -27,7 +27,7 @@ def loglist(request, user_id):
     today_date = today.strftime("%B %d, %Y")
     clientExercise = ClientExercise.objects.filter (user_id = user_id, date = today ).select_related('exercise')
     exercise = Exercise.objects.exclude (id__in = ClientExercise.objects.filter (user_id = user_id, date = today ).values_list('exercise_id')) 
-    return render(request, 'clientExercise/log2.html', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise} )
+    return render(request, 'clientExercise/log.html', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise} )
 
 
 @login_required
