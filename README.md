@@ -21,10 +21,10 @@ The app features login so all information is stored securely to be accessed only
 
 # App Screenshots
 
-<img src="./main_app/static/screenshot0-1.png">
-<img src="./main_app/static/screenshot0-2.png">
-<img src="./main_app/static/screenshot2.png"/>
+<img src="./main_app/static/screenshot0-1.png"/>
+<img src="./main_app/static/screenshot0-2.png"/>
 <img src="./main_app/static/screenshot1.png"/>
+<img src="./main_app/static/screenshot2.png"/>
 <img src="./main_app/static/screenshot1-1.png"/>
 <img src="./main_app/static/screenshot2.png">
 <img src="./main_app/static/screenshot3.png"/>
