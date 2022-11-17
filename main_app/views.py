@@ -52,14 +52,15 @@ def ExerciseDelete(request, exercise_id):
 
 @login_required
 def logUpdate(request, clientexercise_id):
-
+  logbutton = 'active'
   clientExercise = ClientExercise.objects.get(id = clientexercise_id) 
   clientExercise.reps = request.POST['reps']
   clientExercise.sets = request.POST['sets']
   clientExercise.time = request.POST['time']
   clientExercise.note = request.POST['note']
   clientExercise.save()
-  return redirect(f'/clientExercise/{request.user.id}')
+  # return redirect(f'/clientExercise/{request.user.id}')
+  return render(request, f'/clientExercise/{request.user.id}', {'logbutton': logbutton})
 
 
 @login_required

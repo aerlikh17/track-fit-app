@@ -175,12 +175,13 @@ font-weight: bold;
   width: 220px;
   text-align: center;
   border-radius: 5px;
-  color: #715BFB;
-  background-color: #b7b3cf;
+  color: white;
+  background-color: #B7AFE9;
 }
 
 .navButn:hover {
   background-color: #B7AFE9;
+  color: #715BFB;
 }
 
 #theExercise {
