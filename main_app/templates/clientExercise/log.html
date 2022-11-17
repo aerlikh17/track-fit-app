@@ -3,25 +3,28 @@
 {% block content %}
 {% load static %}
 
-
-<div>
-  <div class="row"><div class="col-xl-12 justify-content-center logtitle ">Today: {{today_date}}</div></div>
-  <div class="gap"></div>
-  <div class="row">
-    <div class="col-xl-3 col-lg-3"></div>
-    <div class="col-xl-6 col-lg-6">
-      <div class="logContainer">
-        <label>reps</label>
-        <label>set</label>
-        <label>time</label>
-      </div>
-    </div>
-    <div class="col-xl-3 col-lg-3"> </div>
+<div class="row gap"><div class="col-xl-12 justify-content-center logtitle ">Today: {{today_date}}</div></div>
+<div class="row">
+  <div class="col-xl-5 col-lg-5"></div>
+  <div class="col-xl-2 col-lg-2">
+    <table class="ExerciseUnit">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="font-weight-bold">Reps</th>
+          <th><b>Sets</b></th>
+          <th><b>Min</b></th>
+        </tr>
+      </thead>
+    </table>
   </div>
+  <div class="col-xl-5 col-lg-5"></div>
+</div>
+
   {% for CE in clientExercise %}    
   <form action="{% url 'logUpdate' CE.id %}" method="post">
     {% csrf_token %}
-    <div class="gap"></div>
+    
     
     <div class="row">
       <div class="col-xl-3 col-lg-3"></div>
@@ -43,7 +46,7 @@
   {% endfor %}
       
   <br><br>
-  <div class="row"><div class="col-xl-12 justify-content-center logtitle ">More Exercise to add</div></div>
+  <div class="row gap"><div class="col-xl-12 justify-content-center logtitle ">More Exercise to add</div></div>
   {% for E in exercise %}
     <form action="{% url 'logAdd' user.id E.id %}" method="post">
       {% csrf_token %}
