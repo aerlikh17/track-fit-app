@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load static %}
+<div class="container-fluid fill"></div>
+  <div class="row">
+    <div class="col-xl-4 col-lg-4">  
+     
+    </div>
+    <div class="col-xl-4 col-lg-4">
+      {% for CEGB in clientExerciseGB %}
+        <div class="row trackHeader"><div class="col-xl-12 justify-content-center logtitle ">{{CEGB.date}}</div></div>
+        {% for CE in clientExercise %}
+          {% if CEGB.date == CE.date %}
+            <div class="row">
+              <div class="col-xl-12 col-lg-12">
+                <div class="logContainer">
+                  <img class="NIHLego" src={% static  CE.exercise.picture %} />
+                  <lable class="ExerciseUnit">{{CE.reps}}</lable>
+                <p>Exercise Details</p>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}     
+      {% endfor %}
+    </div>
+    <div class="col-xl-4 col-lg-4">  
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

@@ -82,3 +82,9 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
+
+@login_required
+def exercisedetail(request, user_id):
+    clientExerciseGB = ClientExercise.objects.filter (user_id = user_id ).values('date').annotate(dcount=Count('date')).order_by('-date')
+    clientExercise = ClientExercise.objects.filter (user_id = user_id ).select_related('exercise').order_by('date')
+    return render(request, 'clientExercise/track.html', {'clientExercise': clientExercise, 'clientExerciseGB': clientExerciseGB} )

@@ -1,0 +1,23 @@
+{
+  "name": "unit-3-project",
+  "version": "1.0.0",
+  "description": "Track Fit app is designed for those wishing to keep track of their fitness journey. Our app allows users to log various activities they have completed for the day and have them all stored in one place - track page.",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^5.2.2",
+    "django": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aerlikh17/unit-3-project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aerlikh17/unit-3-project/issues"
+  },
+  "homepage": "https://github.com/aerlikh17/unit-3-project#readme"
+}
