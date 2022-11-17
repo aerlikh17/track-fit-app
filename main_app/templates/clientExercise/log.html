@@ -27,7 +27,7 @@
           {% csrf_token %}  
           
           <tr>
-              <td><img class="NIHLego" src={{ CE.exercise.picture }} title="{{CE.exercise.description}}" /></td>
+              <td><img class="NIHLego" src={{CE.exercise.picture}} title="{{CE.exercise.description}}" /></td>
               <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
               <td><input type="textbox" name="reps" value="{{CE.reps}}" size="3" class="ReportInput"></td>
               <td><input type="textbox" name="sets" value="{{CE.sets}}" size="3" class="ReportInput"></td>
