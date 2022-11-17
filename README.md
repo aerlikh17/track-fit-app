@@ -37,3 +37,6 @@ Click [here]() to deploy Track Fit App
 
 
 # Next Steps
+* Admin can add an exercise to the list of exercises.
+* Admin will have the ability to define a weekly plan for the client.
+* I want to see a calendar where I can see which days I worked out.
