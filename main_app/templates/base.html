@@ -30,7 +30,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link" href="{% url 'logout' %}">
-          Log Out
+          Log Out!
         </a>
     </li>
   {% else %}
@@ -49,8 +49,12 @@
 </nav>
 {% if user.is_authenticated %}
 <div class="navButnContainer">
-  <a href="/clientExercise/track/{{ user.id }}" class="navButn navButn--active font-weight-bold">TRACK</a>
-  <a href="/clientExercise/{{ user.id }}" class="navButn font-weight-bold">LOG</a>
+  {% if trackbutton == 'active' %}
+  <a href="/clientExercise/track/{{ user.id }}" class="navButn active font-weight-bold">TRACK</a>
+  {% else %}
+  <a href="/clientExercise/track/{{ user.id }}" class="navButn inactive font-weight-bold">TRACK</a>
+  {% endif %}
+  <a href="/clientExercise/{{ user.id }}" class="navButn inactive font-weight-bold">LOG</a>
 </div>
 {% endif %}
 
