@@ -48,7 +48,7 @@ h4 {
   font-size:12px;
   width:100px;
   align-self:center;
-  text-align: center;
+  text-align: left;
 }
 
 .logtitle{
@@ -104,6 +104,15 @@ font-weight: bold;
 .galleryContainer img {
   width:300px;
 }
+
+.trackHeader{
+  background-color:#9387DE;
+  color:white;
+  height:50px;
+  vertical-align: middle;
+  margin:20px;
+}
+
 .container-fluid img {
   width:300px;
 }
@@ -123,6 +132,7 @@ font-weight: bold;
   align-items: center;
   justify-content: center;
 }
+
 .navButn {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -201,6 +211,7 @@ body {
 
 .new_footer_area {
   background: #fbfbfd;
+  border-top: 1px solid rgb(227, 226, 226);
 }
 
 
