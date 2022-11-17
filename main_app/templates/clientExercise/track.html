@@ -2,45 +2,40 @@
 {% block content %}
 
 {% load static %}
-
+<br>
 <div class="row">
   <div class="col-xl-4 col-lg-4">  </div>
   <div class="col-xl-4 col-lg-4">  
-
-  </div>
-  <div class="col-xl-4 col-lg-4"></div>
-</div>
-
-
-<div>
-  <div class="row">
-    <div class="col-xl-4 col-lg-4">  
-
-    </div>
-    <div class="col-xl-4 col-lg-4">
-      <div class="row"></div>
-      {% for CEGB in clientExerciseGB %}
-        <div class="row trackHeader"><div class="col-xl-12 justify-content-center tracktitle ">{{CEGB.date}}</div></div>
+    <table style="width:100%;">
+      <thead>
+        <tr>
+          <td class="ExerciseUnit" colspan="2"></td>
+          <td class="ReportTitle">Reps</td>
+          <td class="ReportTitle"><b>Sets</b></td>
+          <td class="ReportTitle"><b>Min</b></tb>
+        </tr>
+      </thead>
+      <tbody>
+        {% for CEGB in clientExerciseGB %}
+        <tr><td colspan="5" class="tracktitle">{{CEGB.date}}</td></tr>
+       
         {% for CE in clientExercise %}
           {% if CEGB.date == CE.date %}
-            <div class="row">
-              <div class="col-xl-12 col-lg-12">
-                <div class="logContainer">
-                  <img class="NIHLego" src={% static  CE.exercise.picture %} />
-                  <lable class="ExerciseUnit">{{CE.reps}}</lable>
-                  <lable class="ExerciseUnit">{{CE.sets}}</lable>
-                  <lable class="ExerciseUnit">{{CE.time}}</lable>
-                </div>
-              </div>
-            </div>
+          <tr>
+            <td><img class="NIHLego" src={% static  CE.exercise.picture %} /></td>
+            <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
+            <td class="ExerciseUnit">{{CE.reps}}</td>
+            <td class="ExerciseUnit">{{CE.sets}}</td>
+            <td class="ExerciseUnit">{{CE.time}}</td>
+          </tr>
+            
           {% endif %}
         {% endfor %}     
       {% endfor %}
-    </div>
-    <div class="col-xl-4 col-lg-4">  
-
-    </div>
+      </tbody>
+    </table>
   </div>
+  <div class="col-xl-4 col-lg-4">  </div>
 </div>
 
 
