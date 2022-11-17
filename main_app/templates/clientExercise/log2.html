@@ -4,24 +4,23 @@
 {% load static %}
 
 <br>
-<h3>{{user.name}}</h3>
-<h3>Today: {{today_date}}</h3>
+<div class="row"><div class="col-xl-12 justify-content-center logtitle ">Today: {{today_date}}</div></div>
 {% for CE in clientExercise %}    
 <form action="{% url 'logUpdate' CE.id %}" method="post">
   {% csrf_token %}
-  <br>
+
   <div class="row">
     <div class="col-xl-3 col-lg-3"></div>
     <div class="col-xl-6 col-lg-6">
       <div class="logContainer">
-        <img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" />
+        <img class="NIHLego" src={% static  CE.exercise.picture %} />
         <span class="ExerciseUnit">{{CE.exercise.name}}</span>
         <input type="textbox" name="reps" value="{{CE.reps}}" size="3" >
         <input type="textbox" name="sets" value="{{CE.sets}}" size="3" >
         <input type="textbox" name="time" value="{{CE.time}}" size="3" >
         <input type="textbox" name="note" size="40" value="{{ CE.note }}"></td> 
-        <input type="submit" value="Edit">  
-        <a href="delete/{{CE.id}}"><img src={% static  'trash.png' %} style="width:30px" /></a>
+        <input type="image" name="submit" src="{% static 'icon-edit.png' %}" style="border: 0px solid;"/>
+        <a href="delete/{{CE.id}}"><img src={% static  'icon-del.png' %} style="width:31px" /></a>
       </div>
     </div>
     <div class="col-xl-3 col-lg-3"></div>
@@ -29,8 +28,8 @@
 </form>
 {% endfor %}
     
-
-
+<br><br>
+<div class="row"><div class="col-xl-12 justify-content-center logtitle ">More Exercise to add</div></div>
 {% for E in exercise %}
   <form action="{% url 'logAdd' user.id E.id %}" method="post">
     {% csrf_token %}
@@ -39,14 +38,13 @@
       <div class="col-xl-3 col-lg-3"></div>
       <div class="col-xl-6 col-lg-6">
         <div class="logContainer">
-          <img class="NIHLego" src={% static E.picture %} style="width:50px" alt="{{E.description}}" />
-          <span class="ExerciseUnit">{{E.name}}</span>
+          <img class="NIHLego" src={% static E.picture %} title="{{E.description}}" />
+          <span class="ExerciseUnit">&nbsp;{{E.name}}</span>
           <input type="textbox" name="reps" size="3" placeholder="reps" >
           <input type="textbox" name="sets" size="3" placeholder="sets" >
           <input type="textbox" name="time" size="3" placeholder="mins">
           <input type="textbox" name="note" size="40" placeholder="notes"></td> 
-          <input type="submit" value="ADD">  
-        
+          <input type="image" name="submit" src="{% static 'icon-add.png' %}" style="border: 0px solid;"/>
         </div>
       </div>
       <div class="col-xl-3 col-lg-3"></div>

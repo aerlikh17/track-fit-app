@@ -8,8 +8,12 @@ body {
 	min-height: 100vh;
   background-color: white;
   font-family: Inter;
+  text-align: center;
 }
 
+input[type=number]::-webkit-inner-spin-button {
+  width: 40px;
+} 
 /* Log page styling */
 
 table {
@@ -41,7 +45,16 @@ h4 {
 
 .ExerciseUnit {
   color:#225981;
-  font-weight: bold;
+  font-size:12px;
+  width:100px;
+  align-self:center;
+  text-align: center;
+}
+
+.logtitle{
+font-family: 'Fjalla One', sans-serif;
+color:#014f82;
+font-weight: bold;
 }
 
 .logUnittd{
@@ -132,14 +145,20 @@ h4 {
   flex-wrap: wrap;
   justify-content: center;
   justify-items: center;
+
 }
+
 .logContainer input {
   border:1px solid #e0e0e0;
   border-radius: 2;
   margin:3px;
   color:#014f82;
   font-size: 12px;
-  height:40px;
+  height:30px;
+}
+
+.logContainer span {
+  vertical-align: baseline;
 }
 
 .item {
@@ -149,6 +168,12 @@ h4 {
 #logo-image {
   width:100%;
   margin:5px;
+}
+
+
+.NIHLego {
+  width:40px;
+  margin-right:10px;
 }
 
 .gradient-custom {
