@@ -82,7 +82,3 @@ def signup(request):
   form = UserCreationForm()
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/signup.html', context)
-
-# step one: grab all unique dates from back end, pass them down into HTML. Call these 'unique dates'
-# step two: Run a for loop in your HTML so that each date in your unique dates list (that you passed down form the backend) is displayed on the page.
-# step three: Display the exercise if the date of the exercise matches the date from the list

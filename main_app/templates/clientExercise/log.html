@@ -1,74 +1,58 @@
 
 {% extends 'base.html' %}
 {% block content %}
-
 {% load static %}
-<div class="main_container">
-  <div>
-    <div id="theExercise">
-        </div>
-        <table class="table table-hover">
-      
 
-      {% for CE in clientExercise %}
-      <thead>
-        <tr>
-          <th class="ExerciseUnit">{{ CE.date }}</th>
-          <th class="ExerciseUnit">Exercise</th>
-          <th class="ExerciseUnit">Reps</th>
-          <th class="ExerciseUnit">Sets</th>
-          <th class="ExerciseUnit">Mins</th>
-          
-          
-        </tr>
-      </thead>
-      <form action="{% url 'logUpdate' CE.id %}" method="post">
-        {% csrf_token %}
-        
-        <tr>  
-          <div id="fitTable">
-          <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
-          <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
-          <td class="logUnittd"><input type="textbox" name="reps" value="{{CE.reps}}" size="5" ></td>
-          <td class="logUnittd"><input type="textbox" name="sets" value="{{CE.sets}}" size="5" ></td>
-          <td class="logUnittd"><input type="textbox" name="time" value="{{CE.time}}" size="5" ></td>
-        </div>
-        </tr> 
-        <tr>
-          <div id="noteEx">
-          
-          <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
-          <td>  
-              <input type="submit" value="Edit">  
-              <a href="delete/{{CE.id}}"><img src={% static  'trash.png' %} style="width:30px" /></a>
-          </td>
-        
-        </div>
-      </tr>
-      </form>
-      {% endfor %}
-    
-      <tr><td><h4>More Activities to Add:</h4></td></tr>
+<br>
+<div class="row"><div class="col-xl-12 justify-content-center logtitle ">Today: {{today_date}}</div></div>
+{% for CE in clientExercise %}    
+<form action="{% url 'logUpdate' CE.id %}" method="post">
+  {% csrf_token %}
+
+  <div class="row">
+    <div class="col-xl-3 col-lg-3">
+
       
-      {% for E in exercise %}
-        <form action="{% url 'logAdd' user.id E.id %}" method="post">
-          {% csrf_token %}
-          <tr>   
-            <td><img class="NIHLego" src={% static  E.picture %} style="width:50px" /></td>
-            <td><span class="ExerciseUnit">{{E.name}}</span></td>
-            <td class="logUnittd"><input type="textbox" name="reps" placeholder="Reps" size="5" value="12"></td>
-            <td class="logUnittd"><input type="textbox" name="sets" placeholder="Sets" size="5" value="13"></td>
-            <td class="logUnittd"><input type="textbox" name="time" placeholder="Mins" size="5" value="14"></td>
-            <td><input type="textbox" name="note" size="40" value="Note"></td>
-            <td>     
-                <input type="submit" value="Add"> 
-            </td>
-          </tr> 
-        </form>  
-      {% endfor %}
-    </table>
+    </div>
+    <div class="col-xl-6 col-lg-6">
+      <div class="logContainer">
+        <img class="NIHLego" src={% static  CE.exercise.picture %} />
+        <span class="ExerciseUnit">{{CE.exercise.name}}</span>
+        <input type="textbox" name="reps" value="{{CE.reps}}" size="3" >
+        <input type="textbox" name="sets" value="{{CE.sets}}" size="3" >
+        <input type="textbox" name="time" value="{{CE.time}}" size="3" >
+        <input type="textbox" name="note" size="40" value="{{ CE.note }}"></td> 
+        <input type="image" name="submit" src="{% static 'icon-edit.png' %}" style="border: 0px solid;"/>
+        <a href="delete/{{CE.id}}"><img src={% static  'icon-del.png' %} style="width:31px" /></a>
+      </div>
+    </div>
+    <div class="col-xl-3 col-lg-3"></div>
   </div>
-</div>
-</div>
+</form>
+{% endfor %}
+    
+<br><br>
+<div class="row"><div class="col-xl-12 justify-content-center logtitle ">More Exercise to add</div></div>
+{% for E in exercise %}
+  <form action="{% url 'logAdd' user.id E.id %}" method="post">
+    {% csrf_token %}
+    <br>
+    <div class="row">
+      <div class="col-xl-3 col-lg-3"></div>
+      <div class="col-xl-6 col-lg-6">
+        <div class="logContainer">
+          <img class="NIHLego" src={% static E.picture %} title="{{E.description}}" />
+          <span class="ExerciseUnit">&nbsp;{{E.name}}</span>
+          <input type="textbox" name="reps" size="3" placeholder="reps" >
+          <input type="textbox" name="sets" size="3" placeholder="sets" >
+          <input type="textbox" name="time" size="3" placeholder="mins">
+          <input type="textbox" name="note" size="40" placeholder="notes"></td> 
+          <input type="image" name="submit" src="{% static 'icon-add.png' %}" style="border: 0px solid;"/>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-3"></div>
+    </div>
+  </form>  
+{% endfor %}
 
 {% endblock %}

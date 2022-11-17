@@ -1,34 +1,35 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h3>{{user.name}}</h3>
 {% load static %}
-<table class="table table-hover trackTable">
-  <thead>
-    <tr>
-      <th class="ExerciseUnit">Date</th>
-      <th></th>
-      <th class="ExerciseUnit">Exercise</th>
-      <th class="ExerciseUnit">Reps</th>
-      <th class="ExerciseUnit">Sets</th>
-      <th class="ExerciseUnit">Mins</th>
-      <th class="ExerciseUnit">Notes</th>
+<div class="container-fluid fill"></div>
+  <div class="row">
+    <div class="col-xl-4 col-lg-4">  
+     
+    </div>
+    <div class="col-xl-4 col-lg-4">
+      {% for CEGB in clientExerciseGB %}
+        <div class="row trackHeader"><div class="col-xl-12 justify-content-center logtitle ">{{CEGB.date}}</div></div>
+        {% for CE in clientExercise %}
+          {% if CEGB.date == CE.date %}
+            <div class="row">
+              <div class="col-xl-12 col-lg-12">
+                <div class="logContainer">
+                  <img class="NIHLego" src={% static  CE.exercise.picture %} />
+                  <lable class="ExerciseUnit">{{CE.reps}}</lable>
+                  <lable class="ExerciseUnit">{{CE.sets}}</lable>
+                  <lable class="ExerciseUnit">{{CE.time}}</lable>
+                </div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}     
+      {% endfor %}
+    </div>
+    <div class="col-xl-4 col-lg-4">  
+    </div>
+  </div>
+</div>
 
-    </tr>
-  </thead>
-    
-  {% for CE in clientExercise %}
- 
-  <tr>  
-    <td>{{CE.date}}</td>
-    <td><img class="NIHLego" src={% static  CE.exercise.picture %} style="width:50px" /></td>
-    <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
-    <td class="logUnittd"><input type="textbox" name="reps" value="{{CE.reps}}" size="5" disabled></td>
-    <td class="logUnittd"><input type="textbox" name="sets" value="{{CE.sets}}" size="5" disabled></td>
-    <td class="logUnittd"><input type="textbox" name="time" value="{{CE.time}}" size="5" disabled></td>
-    <td><input type="textbox" name="note" size="40" value="{{ CE.note }}" disabled></td>
-  </tr>  
-  {% endfor %}
-</table>
 
 {% endblock %}
