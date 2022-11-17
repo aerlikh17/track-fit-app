@@ -37,15 +37,15 @@ The app features login so all information is stored securely to be accessed only
 
 These are the original wireframes provided by the UX Design team
 
-## Login page
+_Login page_
 
 <img src="./main_app/static/login-page.png"/>
 
-## Track page
+_Track page_
 
 <img src="./main_app/static/track-page.png"/>
 
-## Log page 
+_Log page_
 
 <img src="./main_app/static/log-page.png"/>
 
