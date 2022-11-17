@@ -140,6 +140,10 @@ font-weight: bold;
   text-align: center;
 }
 
+.gap {
+  margin-bottom:15px;
+}
+
 .navButnContainer {
   display: flex;
   align-items: center;
@@ -159,7 +163,7 @@ font-weight: bold;
 }
 
 .navButn:active {
-  background-color: #B7AFE9;
+  background-color: #715BFB;
 }
 .navButn:hover {
   background-color: #B7AFE9;
