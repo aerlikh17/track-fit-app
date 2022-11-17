@@ -119,6 +119,10 @@ text-align: center;
   color: #5137fb!important;
 }
 
+.nav-link {
+  padding: 10px;
+}
+
 #user-name {
   margin-right: 50px;
   color: white!important;
@@ -190,11 +194,22 @@ text-align: center;
   color: #715BFB;
 }
 
-.navButn:active {
-  background-color: #715BFB;
+.active {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  margin-right: 10px;
+  padding: 15px 30px;
+  border: 2px solid #715BFB;
+  width: 220px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+  background-color: #B7AFE9;
 }
+
 .navButn:hover {
   background-color: #B7AFE9;
+  color: #715BFB;
 }
 
 #theExercise {
@@ -252,6 +267,11 @@ text-align: center;
 .NIHLego {
   width:40px;
   margin-right:10px;
+}
+
+.navbar-nav .nav-link {
+  padding-right: 10px;
+  padding-left: 0;
 }
 
 .gradient-custom {
@@ -395,6 +415,7 @@ a:hover, a:focus, .btn:hover, .btn:focus, button:hover, button:focus {
   border-color: #5e2ced;
 color:white;
 }
+
 .new_footer_top .f_social_icon a + a {
   margin-left: 4px;
 }

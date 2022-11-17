@@ -23,23 +23,24 @@ def aboutus(request):
     
 
 def loglist(request, user_id):
+    logbutton = 'active'
     today = date.today()
     today_date = today.strftime("%B %d, %Y")
     clientExercise = ClientExercise.objects.filter (user_id = user_id, date = today ).select_related('exercise')
     exercise = Exercise.objects.exclude (id__in = ClientExercise.objects.filter (user_id = user_id, date = today ).values_list('exercise_id')) 
-    return render(request, 'clientExercise/log.html', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise} )
+    return render(request, 'clientExercise/log.html', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise, 'logbutton': logbutton} )
 
 
 @login_required
 def logAdd (request, user_id, exercise_id):
-    form = ClientExerciseForm(request.POST)
-    if form.is_valid(): 
-      new_ClientExercise = form.save(commit=False)
-      new_ClientExercise.date = date.today()    
-      new_ClientExercise.user_id = user_id
-      new_ClientExercise.exercise_id = exercise_id
-      new_ClientExercise.save()
-    return redirect('log', user_id = user_id)
+  form = ClientExerciseForm(request.POST)
+  if form.is_valid(): 
+    new_ClientExercise = form.save(commit=False)
+    new_ClientExercise.date = date.today()    
+    new_ClientExercise.user_id = user_id
+    new_ClientExercise.exercise_id = exercise_id
+    new_ClientExercise.save()
+  return redirect('log', user_id = user_id)
 
     
 @login_required  
@@ -52,7 +53,6 @@ def ExerciseDelete(request, exercise_id):
 
 @login_required
 def logUpdate(request, clientexercise_id):
-
   clientExercise = ClientExercise.objects.get(id = clientexercise_id) 
   clientExercise.reps = request.POST['reps']
   clientExercise.sets = request.POST['sets']
@@ -64,9 +64,10 @@ def logUpdate(request, clientexercise_id):
 
 @login_required
 def tracklist(request, user_id):
-    clientExerciseGB = ClientExercise.objects.filter (user_id = user_id ).values('date').annotate(dcount=Count('date')).order_by('-date')
-    clientExercise = ClientExercise.objects.filter (user_id = user_id ).select_related('exercise').order_by('date')
-    return render(request, 'clientExercise/track.html', {'clientExercise': clientExercise, 'clientExerciseGB': clientExerciseGB} )
+  trackbutton = 'active'
+  clientExerciseGB = ClientExercise.objects.filter (user_id = user_id ).values('date').annotate(dcount=Count('date')).order_by('-date')
+  clientExercise = ClientExercise.objects.filter (user_id = user_id ).select_related('exercise').order_by('date')
+  return render(request, 'clientExercise/track.html', {'clientExercise': clientExercise, 'clientExerciseGB': clientExerciseGB, 'trackbutton': trackbutton} )
 
 
 def signup(request):
