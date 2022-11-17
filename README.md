@@ -21,13 +21,29 @@ The app features login so all information is stored securely to be accessed only
 
 # App Screenshots
 
+_Login page_
+
 <img src="./main_app/static/screenshot0-1.png"/>
+
+_Sign up page_
+
 <img src="./main_app/static/screenshot0-2.png"/>
+
+_Home page_
+
 <img src="./main_app/static/screenshot1.png"/>
-<img src="./main_app/static/screenshot2.png"/>
-<img src="./main_app/static/screenshot1-1.png"/>
-<img src="./main_app/static/screenshot2.png">
+
+_Track page_
+
 <img src="./main_app/static/screenshot3.png"/>
+
+_Log page_
+
+<img src="./main_app/static/screenshot2.png"/>
+
+_Footer_
+
+<img src="./main_app/static/screenshot1-1.png"/>
 
 # Technologies Used
 
@@ -44,15 +60,15 @@ These are the original wireframes provided by the UX Design team
 
 _Login page_
 
-<img src="./main_app/static/login-page.png"/>
+<img src="./main_app/static/Authentication Page.png"/>
 
 _Track page_
 
-<img src="./main_app/static/track-page.png"/>
+<img src="./main_app/static/Tracking Page"/>
 
 _Log page_
 
-<img src="./main_app/static/log-page.png"/>
+<img src="./main_app/static/Logging Screens.png"/>
 
 # Getting Started
 
