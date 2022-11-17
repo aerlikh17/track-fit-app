@@ -54,7 +54,11 @@
   {% else %}
   <a href="/clientExercise/track/{{ user.id }}" class="navButn inactive font-weight-bold">TRACK</a>
   {% endif %}
+  {% if logbutton == 'active' %}
+  <a href="/clientExercise/{{ user.id }}" class="navButn active font-weight-bold">LOG</a>
+  {% else %}
   <a href="/clientExercise/{{ user.id }}" class="navButn inactive font-weight-bold">LOG</a>
+  {% endif %}
 </div>
 {% endif %}
 
