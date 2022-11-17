@@ -165,6 +165,7 @@ font-weight: bold;
 .navButn:active {
   background-color: #715BFB;
 }
+
 .navButn:hover {
   background-color: #B7AFE9;
 }
