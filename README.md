@@ -64,3 +64,4 @@ ERD
 * Add a calendar so the user can see which days they worked out and which days were skipped
 * Add a weight tracker and a graph to show weight fluctuations + BMI calculator
 * Add an API for recipes and calorie counter
+* Allow the user to delete their account
