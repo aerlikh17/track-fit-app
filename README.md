@@ -71,3 +71,4 @@ ERD
 * Allow the user to delete their account
 * Admin can add an exercise to the list of exercises.
 * Admin will have the ability to define a weekly plan for the client.
+* Add exercise details and instructions on how to do them when clicking on exercise image.
