@@ -3,12 +3,22 @@
 
 {% load static %}
 
+<div class="row">
+  <div class="col-xl-4 col-lg-4">  </div>
+  <div class="col-xl-4 col-lg-4">  
+
+  </div>
+  <div class="col-xl-4 col-lg-4"></div>
+</div>
+
+
 <div>
   <div class="row">
     <div class="col-xl-4 col-lg-4">  
 
     </div>
     <div class="col-xl-4 col-lg-4">
+      <div class="row"></div>
       {% for CEGB in clientExerciseGB %}
         <div class="row trackHeader"><div class="col-xl-12 justify-content-center tracktitle ">{{CEGB.date}}</div></div>
         {% for CE in clientExercise %}
