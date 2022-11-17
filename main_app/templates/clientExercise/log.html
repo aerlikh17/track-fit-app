@@ -8,6 +8,7 @@
   <div class="col-xl-4 col-lg-4"></div>
   <div class="col-xl-4 col-lg-4">
     <table class="reportTable">
+      {% if CE %}    
       <thead>
         <tr>
           <td colspan="2"></td>
@@ -18,6 +19,9 @@
           <td colspan="2"></td>
         </tr>
       </thead>
+      {% else %}
+      <tr><td colspan="8" class="logtitle gap">Activities: No activities logged</td></tr>
+      {% endif%}
       <tbody> 
       {% for CE in clientExercise %}    
         <form action="{% url 'logUpdate' CE.id %}" method="post">
@@ -36,7 +40,7 @@
           </form>
         {% endfor %}
         
-        <tr><td colspan="8" class="logtitle gap center"><br><br>More exercise to add</td></tr>
+        <tr><td colspan="8" class="logtitle gap">More exercise to add</td></tr>
           {% for E in exercise %}
         
           <form action="{% url 'logAdd' user.id E.id %}" method="post">

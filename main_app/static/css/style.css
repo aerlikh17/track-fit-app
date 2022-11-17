@@ -57,7 +57,7 @@ h4 {
   font-size:14px;
   font-weight: bold;
   align-self:center;
-  text-align: left;
+  text-align: center;
 }
 
 .ReportInput {
@@ -80,6 +80,7 @@ h4 {
 font-family: 'Fjalla One', sans-serif;
 color:#014f82;
 font-weight: bold;
+text-align: center;
 }
 
 .tracktitle{
