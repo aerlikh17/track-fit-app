@@ -64,7 +64,7 @@ _Login page_
 
 _Track page_
 
-<img src="./main_app/static/Tracking Page"/>
+<img src="./main_app/static/Tracking Page.png"/>
 
 _Log page_
 
