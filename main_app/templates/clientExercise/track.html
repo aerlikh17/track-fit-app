@@ -22,7 +22,11 @@
         {% for CE in clientExercise %}
           {% if CEGB.date == CE.date %}
           <tr>
+<<<<<<< HEAD
             <td><img class="NIHLego" src={{ CE.exercise.picture }} /></td>
+=======
+            <td><img class="NIHLego" src={{CE.exercise.picture}} /></td>
+>>>>>>> main
             <td><span class="ExerciseUnit">{{CE.exercise.name}}</span></td>
             <td class="ReportUnit">{{CE.reps}}</td>
             <td class="ReportUnit">{{CE.sets}}</td>
