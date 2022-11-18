@@ -13,22 +13,23 @@ import uuid
 import boto3
 
 def home(request):
-    return render(request, 'home.html')
+  return render(request, 'home.html')
 
 
 def aboutus(request):
-    return render(request, 'aboutus.html')
+  return render(request, 'aboutus.html')
     
 
 def loglist(request, user_id):
-    logbutton = 'active'
-    today = date.today()
-    today_date = today.strftime("%B %d, %Y")
-    clientExercise = ClientExercise.objects.filter (user_id = user_id, date = today ).select_related('exercise')
-    exercise = Exercise.objects.exclude (id__in = ClientExercise.objects.filter (user_id = user_id, date = today ).values_list('exercise_id')) 
-    return render(request, 'clientExercise/log.html', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise, 'logbutton': logbutton} )
+  logbutton = 'active'
+  today = date.today()
+  today_date = today.strftime("%B %d, %Y")
+  clientExercise = ClientExercise.objects.filter (user_id = user_id, date = today ).select_related('exercise')
+  exercise = Exercise.objects.exclude (id__in = ClientExercise.objects.filter (user_id = user_id, date = today ).values_list('exercise_id')) 
+  return render(request, 'clientExercise/log.html', {'clientExercise': clientExercise, 'today_date': today_date, 'exercise': exercise, 'logbutton': logbutton} )
 
 
+# logAdd is designed to add logs intor user's track
 @login_required
 def logAdd (request, user_id, exercise_id):
   form = ClientExerciseForm(request.POST)
@@ -40,15 +41,7 @@ def logAdd (request, user_id, exercise_id):
     new_ClientExercise.save()
   return redirect('log', user_id = user_id)
 
-    
-@login_required  
-def ExerciseDelete(request, exercise_id):
-  clientExercise = ClientExercise.objects.filter(id = exercise_id)
-  clientExercise.delete()
-  return redirect('log', user_id = request.user.id)
-  new_feeding = form.save(commit=False)
-
-
+# logUpdate is the edit button
 @login_required
 def logUpdate(request, clientexercise_id):
   clientExercise = ClientExercise.objects.get(id = clientexercise_id) 
@@ -58,7 +51,12 @@ def logUpdate(request, clientexercise_id):
   clientExercise.note = request.POST['note']
   clientExercise.save()
   return redirect(f'/clientExercise/{request.user.id}')
-
+    
+@login_required  
+def ExerciseDelete(request, exercise_id):
+  clientExercise = ClientExercise.objects.filter(id = exercise_id)
+  clientExercise.delete()
+  return redirect('log', user_id = request.user.id)
 
 @login_required
 def tracklist(request, user_id):
@@ -66,7 +64,6 @@ def tracklist(request, user_id):
   clientExerciseGB = ClientExercise.objects.filter (user_id = user_id ).values('date').annotate(dcount=Count('date')).order_by('-date')
   clientExercise = ClientExercise.objects.filter (user_id = user_id ).select_related('exercise').order_by('date')
   return render(request, 'clientExercise/track.html', {'clientExercise': clientExercise, 'clientExerciseGB': clientExerciseGB, 'trackbutton': trackbutton} )
-
 
 def signup(request):
   error_message = ''
