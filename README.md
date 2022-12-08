@@ -1,5 +1,4 @@
 <div align="center">
-  <a href="https://github.com/DKotzer/3d-models-site">
 
 <img src="./main_app/static/Component 5.png"/>
 </div>
