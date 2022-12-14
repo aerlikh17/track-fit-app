@@ -51,7 +51,7 @@ _Footer_
 * Bootstrap
 * Python
 * Django
-* PostreSQL
+* PostgreSQL
 
 # Original Wireframe
 
